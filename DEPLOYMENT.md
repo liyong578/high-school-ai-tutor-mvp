@@ -8,25 +8,20 @@
 2. 点击 **Add New → Project**。
 3. 选择 GitHub 仓库 `liyong578/high-school-ai-tutor-mvp`。
 4. Framework Preset 保持 **Next.js**。
-5. Build Command 使用默认值或保持：
+5. Build Command 使用默认值或保持 `npm run build`。
+6. Install Command 使用默认值或保持 `npm install`。
+7. 添加环境变量。
+8. 点击 **Deploy**。
 
-```txt
-npm run build
-```
+## 推荐配置
 
-6. Install Command 使用默认值或保持：
-
-```txt
-npm install
-```
-
-7. 如果只是演示，添加环境变量：
+演示模式：
 
 ```txt
 AI_PROVIDER=mock
 ```
 
-8. 如果要调用真实 DeepSeek API，添加环境变量：
+真实 DeepSeek：
 
 ```txt
 AI_PROVIDER=deepseek
@@ -35,18 +30,66 @@ DEEPSEEK_BASE_URL=https://api.deepseek.com
 DEEPSEEK_MODEL=deepseek-chat
 ```
 
-9. 点击 **Deploy**。
+真实 Kimi / Moonshot：
 
-部署完成后，Vercel 会给你一个在线访问地址。
+```txt
+AI_PROVIDER=kimi
+KIMI_API_KEY=你的 Moonshot API Key
+KIMI_BASE_URL=https://api.moonshot.cn/v1
+KIMI_MODEL=moonshot-v1-8k
+```
+
+真实 OpenAI：
+
+```txt
+AI_PROVIDER=openai
+OPENAI_API_KEY=你的 OpenAI API Key
+OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_MODEL=gpt-4.1-mini
+```
+
+## 预留模型环境变量
+
+```txt
+AI_PROVIDER=qwen
+QWEN_API_KEY=
+QWEN_BASE_URL=
+QWEN_MODEL=
+
+AI_PROVIDER=doubao
+DOUBAO_API_KEY=
+DOUBAO_BASE_URL=
+DOUBAO_MODEL=
+
+AI_PROVIDER=zhipu
+ZHIPU_API_KEY=
+ZHIPU_BASE_URL=
+ZHIPU_MODEL=
+
+AI_PROVIDER=hunyuan
+HUNYUAN_API_KEY=
+HUNYUAN_BASE_URL=
+HUNYUAN_MODEL=
+
+AI_PROVIDER=claude
+ANTHROPIC_API_KEY=
+
+AI_PROVIDER=gemini
+GEMINI_API_KEY=
+```
 
 ## 模型支持状态
 
 - Mock：已支持，不需要 API Key
-- DeepSeek：已支持，走后端 API 调用
-- 通义千问：预留 provider 文件，尚未接入真实调用
-- OpenAI：预留 provider 文件，尚未接入真实调用
-- Claude：预留 provider 文件，尚未接入真实调用
-- Gemini：预留 provider 文件，尚未接入真实调用
+- DeepSeek：已支持真实 API
+- Kimi / Moonshot：已支持真实 API，缺 Key 自动 fallback 到 Mock
+- OpenAI：已支持真实 API
+- 通义千问：预留 provider，尚未接入真实调用
+- 豆包：预留 provider，尚未接入真实调用
+- 智谱：预留 provider，尚未接入真实调用
+- 腾讯混元：预留 provider，尚未接入真实调用
+- Claude：预留 provider，尚未接入真实调用
+- Gemini：预留 provider，尚未接入真实调用
 
 ## 安全说明
 
