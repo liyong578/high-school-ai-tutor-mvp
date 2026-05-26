@@ -7,7 +7,7 @@ export async function runDiagnosis(input: DiagnosisInput): Promise<StudyReport> 
     throw new Error("请先输入题目内容");
   }
 
-  const provider = process.env.AI_PROVIDER || "mock";
+  const provider = (process.env.AI_PROVIDER || "mock").toLowerCase();
 
   if (provider === "mock") {
     return mockReport(input.subject, input.chapter);
