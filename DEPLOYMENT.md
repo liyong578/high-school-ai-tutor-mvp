@@ -20,27 +20,34 @@ npm run build
 npm install
 ```
 
-7. 添加环境变量：
+7. 如果只是演示，添加环境变量：
 
 ```txt
 AI_PROVIDER=mock
 ```
 
-8. 点击 **Deploy**。
-
-部署完成后，Vercel 会给你一个在线访问地址。
-
-## 后续接入真实大模型
-
-当前 MVP 默认使用 Mock 模式，不需要 API Key。
-
-未来接入真实模型时，在 Vercel 的 **Project Settings → Environment Variables** 中添加对应变量。例如：
+8. 如果要调用真实 DeepSeek API，添加环境变量：
 
 ```txt
 AI_PROVIDER=deepseek
-DEEPSEEK_API_KEY=你的后端 API Key
+DEEPSEEK_API_KEY=你的 DeepSeek API Key
 DEEPSEEK_BASE_URL=https://api.deepseek.com
 DEEPSEEK_MODEL=deepseek-chat
 ```
 
-API Key 只放在 Vercel 后端环境变量里，不会暴露到浏览器前端。
+9. 点击 **Deploy**。
+
+部署完成后，Vercel 会给你一个在线访问地址。
+
+## 模型支持状态
+
+- Mock：已支持，不需要 API Key
+- DeepSeek：已支持，走后端 API 调用
+- 通义千问：预留 provider 文件，尚未接入真实调用
+- OpenAI：预留 provider 文件，尚未接入真实调用
+- Claude：预留 provider 文件，尚未接入真实调用
+- Gemini：预留 provider 文件，尚未接入真实调用
+
+## 安全说明
+
+API Key 只放在 Vercel 后端环境变量里，不要写入前端代码，不要提交 `.env` 或 `.env.local`。
